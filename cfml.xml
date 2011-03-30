@@ -1,0 +1,416 @@
+<?xml version='1.0' encoding='utf-8'?>
+<snippets language="cfml">
+  <snippet>
+    <text><![CDATA[<cfcomponent output="false">
+
+	<cfset this.name = "$1">
+	<cfset this.applicationTimeout = createTimeSpan(2,0,0,0)>
+	<cfset this.clientManagement = false><!--- pci compliance, set to false to not set cfid cookie --->
+	<cfset this.clientStorage = "registry">
+	<cfset this.loginStorage = "session">
+	<cfset this.sessionManagement = true>
+	<cfset this.sessionTimeout = createTimeSpan(0,0,20,0)>
+	<cfset this.setClientCookies = false><!--- pci compliance, set to false to not set cfid cookie --->
+	<cfset this.setDomainCookies = true>
+	<cfset this.scriptProtect = false>
+	
+	<cfsetting requesttimeout="20" showdebugoutput="false" enablecfoutputonly="false">
+	
+	<!--- -------------------------Application Scope--------------------- --->
+	<cffunction name="onApplicationStart" returnType="boolean" output="true">
+				
+		<cfreturn true>
+	</cffunction>
+	
+	<cffunction name="onApplicationEnd" returnType="void" output="false">
+		<cfargument name="applicationScope" required="true">
+		
+	</cffunction>
+	
+	<!--- ----------------------Session Scope------------------------ --->
+	<cffunction name="onSessionStart" returnType="void" output="false">
+
+		
+	</cffunction>
+	
+	<cffunction name="onSessionEnd" returnType="void" output="false">
+		<cfargument name="sessionScope" type="struct" required="true">
+		<cfargument name="appScope" type="struct" required="false">
+		
+		
+	</cffunction>
+	
+	<!--- ------------------------Request Scope------------------------- --->
+	<cffunction name="onRequestStart" returnType="boolean" output="false">
+		<cfargument name="thePage" type="string" required="true">
+		
+			
+		<cfreturn true>
+	</cffunction>
+	
+	<cffunction name="onRequestEnd" returnType="void" output="false">
+		<cfargument name="thePage" type="string" required="true">
+		
+		
+	</cffunction>
+
+  	<!--- --------------------------Error Handler---------------------- --->
+	<cffunction name="onError" returnType="void" output="false">
+		<cfargument name="exception" required="true"> 
+		<cfargument name="eventname" type="string" required="true">
+		
+		<cfif StructKeyExists(arguments.exception,"type") and not CompareNoCase(ARGUMENTS.Exception.RootCause.Type,"coldfusion.runtime.AbortException")>
+			<cfreturn />
+		</cfif>
+		
+	
+	</cffunction>
+
+</cfcomponent>]]></text>
+    <tag>application.cfc</tag>
+    <description>application.cfc</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cfargument name="$1" required="${2:[true,false]}" type="${3:[any,array,binary,boolean,component,date,guid,numeric,query,string,struct,uuid,variableName,xml]}">]]></text>
+    <tag>cfargument</tag>
+    <description>cfargument</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cfcase value="$1">
+${1}
+</cfcase>]]></text>
+    <tag>cfcase</tag>
+    <description>cfcase</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cfcomponent output="${1:[false,true]}" displayname="$2" hint="$3">
+
+	$4
+
+</cfcomponent>]]></text>
+    <tag>cfcomponent</tag>
+    <description>cfcomponent</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cfdirectory directory="$1" action="${2:[list,create,delete,rename]}">]]></text>
+    <tag>cfdirectory</tag>
+    <description>cfdirectory</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cfdirectory directory="$1" action="list" name="$2" sort="${3:[asc,desc,directory asc,directory desc,size asc,size desc,datelastmodified asc,datelastmodified desc]}" filter="${4:*}">]]></text>
+    <tag>cfdirectorylist</tag>
+    <description>cfdirectory-list</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cfdirectory action="rename" directory="$1" newdirectory="$2">]]></text>
+    <tag>cfdirectoryrename</tag>
+    <description>cfdirectory-rename</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cfdump var="#$1#">$2]]></text>
+    <tag>cfdump</tag>
+    <description>cfdump</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cffile action="append" file="$1" output="$2">]]></text>
+    <tag>cffileappend</tag>
+    <description>cffile-append</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cffile action="${1:[append,copy,delete,move,read,readbinary,rename,upload,uploadall,write]}">]]></text>
+    <tag>cffile</tag>
+    <description>cffile</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cffile action="copy" source="$1" destination="$2">]]></text>
+    <tag>cffilecopy</tag>
+    <description>cffile-copy</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cffile action="delete" file="$1">]]></text>
+    <tag>cffiledelete</tag>
+    <description>cffile-delete</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cffile action="move" source="$1" destination="$2">]]></text>
+    <tag>cffilemove</tag>
+    <description>cffile-move</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cffile action="${1:[read,readbinary]}" file="$2" variable="$3">]]></text>
+    <tag>cffileread</tag>
+    <description>cffile-read</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cffile action="rename" source="$1" destination="$2">]]></text>
+    <tag>cffilerename</tag>
+    <description>cffile-rename</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cffile action="uploadall" destination="$1">]]></text>
+    <tag>cffileuploadall</tag>
+    <description>cffile-uploadall</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cffile action="upload" filefield="$1" destination="$2">]]></text>
+    <tag>cffileupload</tag>
+    <description>cffile-upload</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cffile action="write" file="$1" output="$2">]]></text>
+    <tag>cffilewrite</tag>
+    <description>cffile-write</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cffunction name="$1" access="${2:[private,package,public,remote]}" output="${3:[false,true]}" returntype="${4:[any,array,binary,boolean,component,date,guid,numeric,query,string,struct,uuid,variableName,void,xml]}">
+	$5
+	
+	<cfreturn />
+</cffunction>]]></text>
+    <tag>cffunction</tag>
+    <description>cffunction</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cfif $1>
+
+${2:[<cfelse>,<cfelseif >]}
+</cfif>]]></text>
+    <tag>cfif</tag>
+    <description>cfif</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cfimage action="read" source="$1" name="$2">]]></text>
+    <tag>cfimage</tag>
+    <description>cfimage</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cfimage action="captcha" height="$1" width="$2" text="$3" destination="$4" difficulty="${5:[high,medium,low]}" overwrite="${6:[true,false]}">]]></text>
+    <tag>cfimagecaptcha</tag>
+    <description>cfimage-captcha</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cfimage action="convert" destination="$1" source="$2" overwrite="${3:[true,false]}">]]></text>
+    <tag>cfimageconvert</tag>
+    <description>cfimage-convert</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cfimage action="info" source="$1" structname="$2">]]></text>
+    <tag>cfimageinfo</tag>
+    <description>cfimage-info</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cfimage action="resize" height="${1:0}" width="${2:0}" source="$3" destination="$4" overwrite="${5:[true,false]}">]]></text>
+    <tag>cfimageresize</tag>
+    <description>cfimage-resize</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cfimage action="rotate" angle="${1:0}" source="$2" destination="$3" overwrite="${4:[true,false]}">]]></text>
+    <tag>cfimagerotate</tag>
+    <description>cfimage-rotate</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cfimage action="write" source="$1" destination="$2" quality="${3:0.75}" overwrite="${4:[true,false]}">]]></text>
+    <tag>cfimagewrite</tag>
+    <description>cfimage-write</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cfimage action="writetobrowser" source="$1">]]></text>
+    <tag>cfimagebrowser</tag>
+    <description>cfimage-writetobrowser</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cfinclude template="$1">]]></text>
+    <tag>cfinclude</tag>
+    <description>cfinclude</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cfinterface displayname="$1" hint="$2">
+
+	$3
+
+</cfinterface>]]></text>
+    <tag>cfinterface</tag>
+    <description>cfinterface</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cflocation url="$1" addtoken="${2:[true,false]}">]]></text>
+    <tag>cflocation</tag>
+    <description>cflocation</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cflock type="${1:[exclusive,readonly]}" scope="${2:[application,request,server,session]}" timeout="$3">
+	$4
+</cflock>]]></text>
+    <tag>cflock</tag>
+    <description>cflock</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cfloop index="${1:[i,j,k,v]}" array="#$2#">
+$3
+</cfloop>]]></text>
+    <tag>cflooparray</tag>
+    <description>cfloop-array</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cfloop condition="$1">
+$2
+</cfloop>]]></text>
+    <tag>cfloop</tag>
+    <description>cfloop</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cfloop index="${1:line}" file="$2">
+$3
+</cfloop>]]></text>
+    <tag>cfloopfile</tag>
+    <description>cfloop-file</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cfloop from="$1" to="$2" index="${3:[i,j,k,v]}" step="${4:1}">
+$5
+</cfloop>]]></text>
+    <tag>cfloopfrom</tag>
+    <description>cfloop-from</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cfloop index="${1:[i,j,k,v]}" list="$2" delimiters="$3">
+$4
+</cfloop>]]></text>
+    <tag>cflooplist</tag>
+    <description>cfloop-list</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cfloop query="$1">
+$2
+</cfloop>]]></text>
+    <tag>cfloopquery</tag>
+    <description>cfloop-query</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cfmail from="$1" to="$2" subject="$3" type="${4:[text,html]}">
+$5
+</cfmail>]]></text>
+    <tag>cfmail</tag>
+    <description>cfmail</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cfoutput>$GEDIT_SELECTED_TEXT$1</cfoutput>]]></text>
+    <tag>cfoutput</tag>
+    <description>cfoutput</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cfoutput query="$1">
+$2
+</cfoutput>]]></text>
+    <tag>cfoutputquery</tag>
+    <description>cfoutput-query</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cfparam name="$1" default="$2">]]></text>
+    <tag>cfparam</tag>
+    <description>cfparam</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cfprocparam cfsqltype="${1:[CF_SQL_BIGINT,CF_SQL_BIT,CF_SQL_CHAR,CF_SQL_BLOB,CF_SQL_CLOB,CF_SQL_DATE,CF_SQL_DECIMAL,CF_SQL_DOUBLE,CF_SQL_FLOAT,CF_SQL_IDSTAMP,CF_SQL_INTEGER,CF_SQL_LONGVARCHAR,CF_SQL_MONEY,CF_SQL_MONEY4,CF_SQL_NUMERIC,CF_SQL_REAL,CF_SQL_REFCURSOR,CF_SQL_SMALLINT,CF_SQL_TIME,CF_SQL_TIMESTAMP,CF_SQL_TINYINT,CF_SQL_VARCHAR]}" type="${2:[in,out,inout]}" value="">]]></text>
+    <tag>cfprocparam</tag>
+    <description>cfprocparam</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cfprocresult name="$1">]]></text>
+    <tag>cfprocresult</tag>
+    <description>cfprocresult</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cfquery name="${1:name}" datasource="${2:datasource}">
+$3
+</cfquery>]]></text>
+    <tag>cfquery</tag>
+    <description>cfquery</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cfqueryparam cfsqltype="${1:[CF_SQL_BIGINT,CF_SQL_BIT,CF_SQL_CHAR,CF_SQL_BLOB,CF_SQL_CLOB,CF_SQL_DATE,CF_SQL_DECIMAL,CF_SQL_DOUBLE,CF_SQL_FLOAT,CF_SQL_IDSTAMP,CF_SQL_INTEGER,CF_SQL_LONGVARCHAR,CF_SQL_MONEY,CF_SQL_MONEY4,CF_SQL_NUMERIC,CF_SQL_REAL,CF_SQL_REFCURSOR,CF_SQL_SMALLINT,CF_SQL_TIME,CF_SQL_TIMESTAMP,CF_SQL_TINYINT,CF_SQL_VARCHAR]}" value="${2}">$3]]></text>
+    <tag>cfqueryparam</tag>
+    <description>cfqueryparam</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cfsavecontent variable="$1">
+$GEDIT_SELECTED_TEXT$2
+</cfsavecontent>]]></text>
+    <tag>cfsavecontent</tag>
+    <description>cfsavecontent</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cfscript>
+	$1
+</cfscript>]]></text>
+    <tag>cfscript</tag>
+    <description>cfscript</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cfset $1>]]></text>
+    <tag>cfset</tag>
+    <description>cfset</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cfsilent>
+	$1
+</cfsilent>]]></text>
+    <tag>cfsilent</tag>
+    <description>cfsilent</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cfstoredproc datasource="$1" procedure="$2">
+	$3
+</cfstoredproc>]]></text>
+    <tag>cfstoredproc</tag>
+    <description>cfstoredproc</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cfswitch expression="$1">
+
+	<cfcase value="$2">
+
+	</cfcase>
+
+	$3
+	
+	<cfdefaultcase>
+
+	</cfdefaultcase>
+</cfswitch>]]></text>
+    <tag>cfswitch</tag>
+    <description>cfswitch</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cftransaction isolation="${1:[read_uncommitted,read_committed,repeatable_read]}">
+$GEDIT_SELECTED_TEXT$2
+</cftransaction>]]></text>
+    <tag>cftransaction</tag>
+    <description>cftransaction</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<cftry>
+	$2
+	
+	<cfcatch type="${1:[any,application,database,template,security,object,missinginclude,expression,lock,searchengine]}">
+
+	</cfcatch>
+
+	<cffinally>
+
+	</cffinally>
+</cftry>]]></text>
+    <tag>cftry</tag>
+    <description>cftry</description>
+  </snippet>
+  <snippet>
+    <text><![CDATA[<!--- $GEDIT_SELECTED_TEXT$0 --->$1]]></text>
+    <description>comment</description>
+    <accelerator><![CDATA[<Shift><Control>m]]></accelerator>
+  </snippet>
+  <snippet>
+    <text><![CDATA[IsValid("${1:[any,array,binary,boolean,component,creditcard,date,time,email,eurodate,float,numeric,guid,integer,query,range,regex,ssn,string,struct,telephone,URL,UUID,USDate,variableName,zipcode,maxlength]}", $2)]]></text>
+    <tag>IsValid</tag>
+    <description>IsValid</description>
+  </snippet>
+</snippets>
