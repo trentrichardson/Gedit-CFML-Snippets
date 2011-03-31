@@ -71,13 +71,14 @@
     <description>application.cfc</description>
   </snippet>
   <snippet>
-    <text><![CDATA[<cfargument name="$1" required="${2:[true,false]}" type="${3:[any,array,binary,boolean,component,date,guid,numeric,query,string,struct,uuid,variableName,xml]}">]]></text>
+    <text><![CDATA[<cfargument name="$1" required="${2:[true,false]}" type="${3:[any,array,binary,boolean,component,date,guid,numeric,query,string,struct,uuid,variableName,xml]}">
+$0]]></text>
     <tag>cfargument</tag>
     <description>cfargument</description>
   </snippet>
   <snippet>
     <text><![CDATA[<cfcase value="$1">
-${1}
+$0
 </cfcase>]]></text>
     <tag>cfcase</tag>
     <description>cfcase</description>
@@ -85,7 +86,7 @@ ${1}
   <snippet>
     <text><![CDATA[<cfcomponent output="${1:[false,true]}" displayname="$2" hint="$3">
 
-	$4
+	$0
 
 </cfcomponent>]]></text>
     <tag>cfcomponent</tag>
@@ -107,7 +108,7 @@ ${1}
     <description>cfdirectory-rename</description>
   </snippet>
   <snippet>
-    <text><![CDATA[<cfdump var="#$1#">$2]]></text>
+    <text><![CDATA[<cfdump var="#$1#">$0]]></text>
     <tag>cfdump</tag>
     <description>cfdump</description>
   </snippet>
@@ -226,7 +227,7 @@ ${2:[<cfelse>,<cfelseif >]}
   <snippet>
     <text><![CDATA[<cfinterface displayname="$1" hint="$2">
 
-	$3
+	$0
 
 </cfinterface>]]></text>
     <tag>cfinterface</tag>
@@ -239,68 +240,68 @@ ${2:[<cfelse>,<cfelseif >]}
   </snippet>
   <snippet>
     <text><![CDATA[<cflock type="${1:[exclusive,readonly]}" scope="${2:[application,request,server,session]}" timeout="$3">
-	$4
+	$0
 </cflock>]]></text>
     <tag>cflock</tag>
     <description>cflock</description>
   </snippet>
   <snippet>
     <text><![CDATA[<cfloop index="${1:[i,j,k,v]}" array="#$2#">
-$3
+	$0
 </cfloop>]]></text>
     <tag>cflooparray</tag>
     <description>cfloop-array</description>
   </snippet>
   <snippet>
     <text><![CDATA[<cfloop condition="$1">
-$2
+	$0
 </cfloop>]]></text>
     <tag>cfloop</tag>
     <description>cfloop</description>
   </snippet>
   <snippet>
     <text><![CDATA[<cfloop index="${1:line}" file="$2">
-$3
+	$0
 </cfloop>]]></text>
     <tag>cfloopfile</tag>
     <description>cfloop-file</description>
   </snippet>
   <snippet>
     <text><![CDATA[<cfloop from="$1" to="$2" index="${3:[i,j,k,v]}" step="${4:1}">
-$5
+	$0
 </cfloop>]]></text>
     <tag>cfloopfrom</tag>
     <description>cfloop-from</description>
   </snippet>
   <snippet>
     <text><![CDATA[<cfloop index="${1:[i,j,k,v]}" list="$2" delimiters="$3">
-$4
+	$0
 </cfloop>]]></text>
     <tag>cflooplist</tag>
     <description>cfloop-list</description>
   </snippet>
   <snippet>
     <text><![CDATA[<cfloop query="$1">
-$2
+	$0
 </cfloop>]]></text>
     <tag>cfloopquery</tag>
     <description>cfloop-query</description>
   </snippet>
   <snippet>
     <text><![CDATA[<cfmail from="$1" to="$2" subject="$3" type="${4:[text,html]}">
-$5
+$0
 </cfmail>]]></text>
     <tag>cfmail</tag>
     <description>cfmail</description>
   </snippet>
   <snippet>
-    <text><![CDATA[<cfoutput>$GEDIT_SELECTED_TEXT$1</cfoutput>]]></text>
+    <text><![CDATA[<cfoutput>$GEDIT_SELECTED_TEXT$0</cfoutput>]]></text>
     <tag>cfoutput</tag>
     <description>cfoutput</description>
   </snippet>
   <snippet>
     <text><![CDATA[<cfoutput query="$1">
-$2
+$0
 </cfoutput>]]></text>
     <tag>cfoutputquery</tag>
     <description>cfoutput-query</description>
@@ -311,7 +312,7 @@ $2
     <description>cfparam</description>
   </snippet>
   <snippet>
-    <text><![CDATA[<cfprocparam cfsqltype="${1:[CF_SQL_BIGINT,CF_SQL_BIT,CF_SQL_CHAR,CF_SQL_BLOB,CF_SQL_CLOB,CF_SQL_DATE,CF_SQL_DECIMAL,CF_SQL_DOUBLE,CF_SQL_FLOAT,CF_SQL_IDSTAMP,CF_SQL_INTEGER,CF_SQL_LONGVARCHAR,CF_SQL_MONEY,CF_SQL_MONEY4,CF_SQL_NUMERIC,CF_SQL_REAL,CF_SQL_REFCURSOR,CF_SQL_SMALLINT,CF_SQL_TIME,CF_SQL_TIMESTAMP,CF_SQL_TINYINT,CF_SQL_VARCHAR]}" type="${2:[in,out,inout]}" value="">]]></text>
+    <text><![CDATA[<cfprocparam cfsqltype="${1:[CF_SQL_BIGINT,CF_SQL_BIT,CF_SQL_CHAR,CF_SQL_BLOB,CF_SQL_CLOB,CF_SQL_DATE,CF_SQL_DECIMAL,CF_SQL_DOUBLE,CF_SQL_FLOAT,CF_SQL_IDSTAMP,CF_SQL_INTEGER,CF_SQL_LONGVARCHAR,CF_SQL_MONEY,CF_SQL_MONEY4,CF_SQL_NUMERIC,CF_SQL_REAL,CF_SQL_REFCURSOR,CF_SQL_SMALLINT,CF_SQL_TIME,CF_SQL_TIMESTAMP,CF_SQL_TINYINT,CF_SQL_VARCHAR]}" type="${2:[in,out,inout]}" value="$3">]]></text>
     <tag>cfprocparam</tag>
     <description>cfprocparam</description>
   </snippet>
@@ -322,26 +323,26 @@ $2
   </snippet>
   <snippet>
     <text><![CDATA[<cfquery name="${1:name}" datasource="${2:datasource}">
-$3
+$0
 </cfquery>]]></text>
     <tag>cfquery</tag>
     <description>cfquery</description>
   </snippet>
   <snippet>
-    <text><![CDATA[<cfqueryparam cfsqltype="${1:[CF_SQL_BIGINT,CF_SQL_BIT,CF_SQL_CHAR,CF_SQL_BLOB,CF_SQL_CLOB,CF_SQL_DATE,CF_SQL_DECIMAL,CF_SQL_DOUBLE,CF_SQL_FLOAT,CF_SQL_IDSTAMP,CF_SQL_INTEGER,CF_SQL_LONGVARCHAR,CF_SQL_MONEY,CF_SQL_MONEY4,CF_SQL_NUMERIC,CF_SQL_REAL,CF_SQL_REFCURSOR,CF_SQL_SMALLINT,CF_SQL_TIME,CF_SQL_TIMESTAMP,CF_SQL_TINYINT,CF_SQL_VARCHAR]}" value="${2}">$3]]></text>
+    <text><![CDATA[<cfqueryparam cfsqltype="${1:[CF_SQL_BIGINT,CF_SQL_BIT,CF_SQL_CHAR,CF_SQL_BLOB,CF_SQL_CLOB,CF_SQL_DATE,CF_SQL_DECIMAL,CF_SQL_DOUBLE,CF_SQL_FLOAT,CF_SQL_IDSTAMP,CF_SQL_INTEGER,CF_SQL_LONGVARCHAR,CF_SQL_MONEY,CF_SQL_MONEY4,CF_SQL_NUMERIC,CF_SQL_REAL,CF_SQL_REFCURSOR,CF_SQL_SMALLINT,CF_SQL_TIME,CF_SQL_TIMESTAMP,CF_SQL_TINYINT,CF_SQL_VARCHAR]}" value="${2}">$0]]></text>
     <tag>cfqueryparam</tag>
     <description>cfqueryparam</description>
   </snippet>
   <snippet>
     <text><![CDATA[<cfsavecontent variable="$1">
-$GEDIT_SELECTED_TEXT$2
+$GEDIT_SELECTED_TEXT$0
 </cfsavecontent>]]></text>
     <tag>cfsavecontent</tag>
     <description>cfsavecontent</description>
   </snippet>
   <snippet>
     <text><![CDATA[<cfscript>
-	$1
+	$0
 </cfscript>]]></text>
     <tag>cfscript</tag>
     <description>cfscript</description>
@@ -353,14 +354,14 @@ $GEDIT_SELECTED_TEXT$2
   </snippet>
   <snippet>
     <text><![CDATA[<cfsilent>
-	$1
+	$0
 </cfsilent>]]></text>
     <tag>cfsilent</tag>
     <description>cfsilent</description>
   </snippet>
   <snippet>
     <text><![CDATA[<cfstoredproc datasource="$1" procedure="$2">
-	$3
+	$0
 </cfstoredproc>]]></text>
     <tag>cfstoredproc</tag>
     <description>cfstoredproc</description>
@@ -372,7 +373,7 @@ $GEDIT_SELECTED_TEXT$2
 
 	</cfcase>
 
-	$3
+	$0
 	
 	<cfdefaultcase>
 
@@ -383,14 +384,14 @@ $GEDIT_SELECTED_TEXT$2
   </snippet>
   <snippet>
     <text><![CDATA[<cftransaction isolation="${1:[read_uncommitted,read_committed,repeatable_read]}">
-$GEDIT_SELECTED_TEXT$2
+$GEDIT_SELECTED_TEXT$0
 </cftransaction>]]></text>
     <tag>cftransaction</tag>
     <description>cftransaction</description>
   </snippet>
   <snippet>
     <text><![CDATA[<cftry>
-	$2
+	$0
 	
 	<cfcatch type="${1:[any,application,database,template,security,object,missinginclude,expression,lock,searchengine]}">
 
@@ -404,7 +405,7 @@ $GEDIT_SELECTED_TEXT$2
     <description>cftry</description>
   </snippet>
   <snippet>
-    <text><![CDATA[<!--- $GEDIT_SELECTED_TEXT$0 --->$1]]></text>
+    <text><![CDATA[<!--- $GEDIT_SELECTED_TEXT$1 --->$0]]></text>
     <description>comment</description>
     <accelerator><![CDATA[<Shift><Control>m]]></accelerator>
   </snippet>
