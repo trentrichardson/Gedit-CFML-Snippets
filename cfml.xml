@@ -95,16 +95,16 @@ $0
   <snippet>
     <text><![CDATA[<cfdirectory directory="$1" action="${2:[list,create,delete,rename]}">]]></text>
     <tag>cfdirectory</tag>
-    <description>cfdirectory</description>
+    <description>cfdirectory-create-delete</description>
   </snippet>
   <snippet>
     <text><![CDATA[<cfdirectory directory="$1" action="list" name="$2" sort="${3:[asc,desc,directory asc,directory desc,size asc,size desc,datelastmodified asc,datelastmodified desc]}" filter="${4:*}">]]></text>
-    <tag>cfdirectorylist</tag>
+    <tag>cfdirectory</tag>
     <description>cfdirectory-list</description>
   </snippet>
   <snippet>
     <text><![CDATA[<cfdirectory action="rename" directory="$1" newdirectory="$2">]]></text>
-    <tag>cfdirectoryrename</tag>
+    <tag>cfdirectory</tag>
     <description>cfdirectory-rename</description>
   </snippet>
   <snippet>
@@ -114,7 +114,7 @@ $0
   </snippet>
   <snippet>
     <text><![CDATA[<cffile action="append" file="$1" output="$2">]]></text>
-    <tag>cffileappend</tag>
+    <tag>cffile</tag>
     <description>cffile-append</description>
   </snippet>
   <snippet>
@@ -124,42 +124,42 @@ $0
   </snippet>
   <snippet>
     <text><![CDATA[<cffile action="copy" source="$1" destination="$2">]]></text>
-    <tag>cffilecopy</tag>
+    <tag>cffile</tag>
     <description>cffile-copy</description>
   </snippet>
   <snippet>
     <text><![CDATA[<cffile action="delete" file="$1">]]></text>
-    <tag>cffiledelete</tag>
+    <tag>cffile</tag>
     <description>cffile-delete</description>
   </snippet>
   <snippet>
     <text><![CDATA[<cffile action="move" source="$1" destination="$2">]]></text>
-    <tag>cffilemove</tag>
+    <tag>cffile</tag>
     <description>cffile-move</description>
   </snippet>
   <snippet>
     <text><![CDATA[<cffile action="${1:[read,readbinary]}" file="$2" variable="$3">]]></text>
-    <tag>cffileread</tag>
+    <tag>cffile</tag>
     <description>cffile-read</description>
   </snippet>
   <snippet>
     <text><![CDATA[<cffile action="rename" source="$1" destination="$2">]]></text>
-    <tag>cffilerename</tag>
+    <tag>cffile</tag>
     <description>cffile-rename</description>
   </snippet>
   <snippet>
     <text><![CDATA[<cffile action="uploadall" destination="$1">]]></text>
-    <tag>cffileuploadall</tag>
+    <tag>cffile</tag>
     <description>cffile-uploadall</description>
   </snippet>
   <snippet>
     <text><![CDATA[<cffile action="upload" filefield="$1" destination="$2">]]></text>
-    <tag>cffileupload</tag>
+    <tag>cffile</tag>
     <description>cffile-upload</description>
   </snippet>
   <snippet>
     <text><![CDATA[<cffile action="write" file="$1" output="$2">]]></text>
-    <tag>cffilewrite</tag>
+    <tag>cffile</tag>
     <description>cffile-write</description>
   </snippet>
   <snippet>
@@ -180,43 +180,43 @@ ${2:[<cfelse>,<cfelseif >]}
     <description>cfif</description>
   </snippet>
   <snippet>
-    <text><![CDATA[<cfimage action="read" source="$1" name="$2">]]></text>
-    <tag>cfimage</tag>
-    <description>cfimage</description>
-  </snippet>
-  <snippet>
     <text><![CDATA[<cfimage action="captcha" height="$1" width="$2" text="$3" destination="$4" difficulty="${5:[high,medium,low]}" overwrite="${6:[true,false]}">]]></text>
-    <tag>cfimagecaptcha</tag>
+    <tag>cfimage</tag>
     <description>cfimage-captcha</description>
   </snippet>
   <snippet>
     <text><![CDATA[<cfimage action="convert" destination="$1" source="$2" overwrite="${3:[true,false]}">]]></text>
-    <tag>cfimageconvert</tag>
+    <tag>cfimage</tag>
     <description>cfimage-convert</description>
   </snippet>
   <snippet>
     <text><![CDATA[<cfimage action="info" source="$1" structname="$2">]]></text>
-    <tag>cfimageinfo</tag>
+    <tag>cfimage</tag>
     <description>cfimage-info</description>
   </snippet>
   <snippet>
+    <text><![CDATA[<cfimage action="read" source="$1" name="$2">]]></text>
+    <tag>cfimage</tag>
+    <description>cfimage-read</description>
+  </snippet>
+  <snippet>
     <text><![CDATA[<cfimage action="resize" height="${1:0}" width="${2:0}" source="$3" destination="$4" overwrite="${5:[true,false]}">]]></text>
-    <tag>cfimageresize</tag>
+    <tag>cfimage</tag>
     <description>cfimage-resize</description>
   </snippet>
   <snippet>
     <text><![CDATA[<cfimage action="rotate" angle="${1:0}" source="$2" destination="$3" overwrite="${4:[true,false]}">]]></text>
-    <tag>cfimagerotate</tag>
+    <tag>cfimage</tag>
     <description>cfimage-rotate</description>
   </snippet>
   <snippet>
     <text><![CDATA[<cfimage action="write" source="$1" destination="$2" quality="${3:0.75}" overwrite="${4:[true,false]}">]]></text>
-    <tag>cfimagewrite</tag>
+    <tag>cfimage</tag>
     <description>cfimage-write</description>
   </snippet>
   <snippet>
     <text><![CDATA[<cfimage action="writetobrowser" source="$1">]]></text>
-    <tag>cfimagebrowser</tag>
+    <tag>cfimage</tag>
     <description>cfimage-writetobrowser</description>
   </snippet>
   <snippet>
@@ -249,7 +249,7 @@ ${2:[<cfelse>,<cfelseif >]}
     <text><![CDATA[<cfloop index="${1:[i,j,k,v]}" array="#$2#">
 	$0
 </cfloop>]]></text>
-    <tag>cflooparray</tag>
+    <tag>cfloop</tag>
     <description>cfloop-array</description>
   </snippet>
   <snippet>
@@ -257,34 +257,34 @@ ${2:[<cfelse>,<cfelseif >]}
 	$0
 </cfloop>]]></text>
     <tag>cfloop</tag>
-    <description>cfloop</description>
+    <description>cfloop-condition</description>
   </snippet>
   <snippet>
     <text><![CDATA[<cfloop index="${1:line}" file="$2">
 	$0
 </cfloop>]]></text>
-    <tag>cfloopfile</tag>
+    <tag>cfloop</tag>
     <description>cfloop-file</description>
   </snippet>
   <snippet>
     <text><![CDATA[<cfloop from="$1" to="$2" index="${3:[i,j,k,v]}" step="${4:1}">
 	$0
 </cfloop>]]></text>
-    <tag>cfloopfrom</tag>
+    <tag>cfloop</tag>
     <description>cfloop-from</description>
   </snippet>
   <snippet>
     <text><![CDATA[<cfloop index="${1:[i,j,k,v]}" list="$2" delimiters="$3">
 	$0
 </cfloop>]]></text>
-    <tag>cflooplist</tag>
+    <tag>cfloop</tag>
     <description>cfloop-list</description>
   </snippet>
   <snippet>
     <text><![CDATA[<cfloop query="$1">
 	$0
 </cfloop>]]></text>
-    <tag>cfloopquery</tag>
+    <tag>cfloop</tag>
     <description>cfloop-query</description>
   </snippet>
   <snippet>
@@ -312,7 +312,7 @@ $0
     <description>cfparam</description>
   </snippet>
   <snippet>
-    <text><![CDATA[<cfprocparam cfsqltype="${1:[CF_SQL_BIGINT,CF_SQL_BIT,CF_SQL_CHAR,CF_SQL_BLOB,CF_SQL_CLOB,CF_SQL_DATE,CF_SQL_DECIMAL,CF_SQL_DOUBLE,CF_SQL_FLOAT,CF_SQL_IDSTAMP,CF_SQL_INTEGER,CF_SQL_LONGVARCHAR,CF_SQL_MONEY,CF_SQL_MONEY4,CF_SQL_NUMERIC,CF_SQL_REAL,CF_SQL_REFCURSOR,CF_SQL_SMALLINT,CF_SQL_TIME,CF_SQL_TIMESTAMP,CF_SQL_TINYINT,CF_SQL_VARCHAR]}" type="${2:[in,out,inout]}" value="$3">]]></text>
+    <text><![CDATA[<cfprocparam cfsqltype="${1:[cf_sql_bigint,cf_sql_bit,cf_sql_char,cf_sql_blob,cf_sql_clob,cf_sql_date,cf_sql_decimal,cf_sql_double,cf_sql_float,cf_sql_idstamp,cf_sql_integer,cf_sql_longvarchar,cf_sql_money,cf_sql_money4,cf_sql_numeric,cf_sql_real,cf_sql_refcursor,cf_sql_smallint,cf_sql_time,cf_sql_timestamp,cf_sql_tinyint,cf_sql_varchar]}" type="${2:[in,out,inout]}" value="$3">]]></text>
     <tag>cfprocparam</tag>
     <description>cfprocparam</description>
   </snippet>
@@ -329,7 +329,7 @@ $0
     <description>cfquery</description>
   </snippet>
   <snippet>
-    <text><![CDATA[<cfqueryparam cfsqltype="${1:[CF_SQL_BIGINT,CF_SQL_BIT,CF_SQL_CHAR,CF_SQL_BLOB,CF_SQL_CLOB,CF_SQL_DATE,CF_SQL_DECIMAL,CF_SQL_DOUBLE,CF_SQL_FLOAT,CF_SQL_IDSTAMP,CF_SQL_INTEGER,CF_SQL_LONGVARCHAR,CF_SQL_MONEY,CF_SQL_MONEY4,CF_SQL_NUMERIC,CF_SQL_REAL,CF_SQL_REFCURSOR,CF_SQL_SMALLINT,CF_SQL_TIME,CF_SQL_TIMESTAMP,CF_SQL_TINYINT,CF_SQL_VARCHAR]}" value="${2}">$0]]></text>
+    <text><![CDATA[<cfqueryparam cfsqltype="${1:[cf_sql_bigint,cf_sql_bit,cf_sql_char,cf_sql_blob,cf_sql_clob,cf_sql_date,cf_sql_decimal,cf_sql_double,cf_sql_float,cf_sql_idstamp,cf_sql_integer,cf_sql_longvarchar,cf_sql_money,cf_sql_money4,cf_sql_numeric,cf_sql_real,cf_sql_refcursor,cf_sql_smallint,cf_sql_time,cf_sql_timestamp,cf_sql_tinyint,cf_sql_varchar]}" value="${2}">$0]]></text>
     <tag>cfqueryparam</tag>
     <description>cfqueryparam</description>
   </snippet>
