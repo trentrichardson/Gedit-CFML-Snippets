@@ -93,6 +93,11 @@ $0
     <description>cfcomponent</description>
   </snippet>
   <snippet>
+    <text><![CDATA[<cfcookie name="$1" value="$2" expires="${3:[never,now,#CreateDate()#,#CreateDateTime()#]}">]]></text>
+    <tag>cfcookie</tag>
+    <description>cfcookie</description>
+  </snippet>
+  <snippet>
     <text><![CDATA[<cfdirectory directory="$1" action="${2:[list,create,delete,rename]}">]]></text>
     <tag>cfdirectory</tag>
     <description>cfdirectory-create-delete</description>
